@@ -1,8 +1,11 @@
-import { useState } from "react";
-import Pokedex from "./components/Pokedex";
+import ScreenPokedex from "./components/ScreenPokedex";
 
 function App() {
-  return <Pokedex />;
+  return (
+    <div>
+      <ScreenPokedex />
+    </div>
+  );
 }
 
 export default App;
