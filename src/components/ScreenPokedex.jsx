@@ -21,7 +21,7 @@ const Pokedex = (params) => {
         );
         if (pokedex != null) {
           setPokemonList(pokedex.data.pokemon_entries);
-          if (selPokedex === "") setSelPokedex(1); //Seleccionamos la primera por defecto
+          if (selPokedex === "") setSelPokedex("national"); //Seleccionamos la primera por defecto
         } else {
           setPokemonList([]);
         }
@@ -33,7 +33,7 @@ const Pokedex = (params) => {
 
   return (
     <div>
-      <h1>Pokedex de {selPokedex}</h1>
+      <h1>Pokedex {selPokedex}</h1>
       <SelectPokedex
         functionOnchange={changeActivePokedex}
         pokedex={selPokedex}

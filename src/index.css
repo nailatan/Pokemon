@@ -35,10 +35,18 @@ ul {
   flex-wrap: wrap;
 }
 li {
-  width: 200px;
-  height: 200px;
+  width: 15rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+}
+.card {
+  background-color: beige;
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
