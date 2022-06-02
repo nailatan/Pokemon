@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "../index.css";
 
 const SelectPokedex = (props) => {
   const [pokedexValues, setPokedexValues] = useState([]);
@@ -25,7 +26,6 @@ const SelectPokedex = (props) => {
   return (
     <form>
       <label>
-        value
         <select value={props.pokedex} onChange={selectPokedex}>
           {pokedexValues.map((pokedex) => {
             return (
