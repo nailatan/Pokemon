@@ -57,7 +57,16 @@ const Pokedex = (params) => {
         <ul>
           {pokemonList.map((pokemon) => {
             return (
-              <li key={pokemon.entry_number}>{pokemon.pokemon_species.name}</li>
+              <li key={pokemon.entry_number}>
+                <img
+                  src={
+                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                    pokemon.entry_number +
+                    ".png"
+                  }
+                />{" "}
+                {pokemon.pokemon_species.name}
+              </li>
             );
           })}
         </ul>
