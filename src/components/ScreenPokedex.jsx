@@ -33,7 +33,7 @@ const Pokedex = (params) => {
 
   return (
     <div>
-      <h1>Pokedex {selPokedex}</h1>
+      <h1>Pokedex</h1>
       <SelectPokedex
         functionOnchange={changeActivePokedex}
         pokedex={selPokedex}

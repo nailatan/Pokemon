@@ -27,7 +27,11 @@ const SelectPokedex = (props) => {
   return (
     <form>
       <label>
-        <select value={selectedValue} onChange={selectPokedex}>
+        <select
+          className="select"
+          value={selectedValue}
+          onChange={selectPokedex}
+        >
           {pokedexValues.map((pokedex) => {
             return (
               <option key={pokedex.name} value={pokedex.name}>
