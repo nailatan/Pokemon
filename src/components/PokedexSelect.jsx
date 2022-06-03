@@ -6,6 +6,7 @@ import "../index.css";
 const SelectPokedex = (props) => {
   const [pokedexValues, setPokedexValues] = useState([]);
   const onChangeSelect = props.functionOnchange;
+  const selectedValue = props.pokedex;
 
   useEffect((prev) => {
     const getPokedex = async () => {
@@ -26,7 +27,7 @@ const SelectPokedex = (props) => {
   return (
     <form>
       <label>
-        <select value={props.pokedex} onChange={selectPokedex}>
+        <select value={selectedValue} onChange={selectPokedex}>
           {pokedexValues.map((pokedex) => {
             return (
               <option key={pokedex.name} value={pokedex.name}>

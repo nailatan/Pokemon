@@ -44,9 +44,20 @@ li {
 }
 .card {
   background-color: beige;
+  border-radius: 10%;
   width: 12rem;
   height: 12rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.pokemonType {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.typeInfo {
+  border: 10%;
+  padding: 0.2rem;
+  width: 10rem;
 }
