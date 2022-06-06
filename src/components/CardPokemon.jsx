@@ -3,11 +3,15 @@ import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import PokemonType from "./PokemonType";
 import "../index.css";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const CardPokemon = ({ entry_number, pokemon_species }) => {
   const [typePokemon, setTypePokemon] = useState([]);
   const pokemonIndex =
     pokemon_species.url.split("/")[pokemon_species.url.split("/").length - 2];
+
+  const loca = useLocation();
+  const navigate = useNavigate();
 
   useEffect((prev) => {
     const getPokemon = async () => {
@@ -27,9 +31,12 @@ const CardPokemon = ({ entry_number, pokemon_species }) => {
     getPokemon();
   }, []);
 
+  const handleClick = () => {
+    navigate(`/Pokemon/${pokemonIndex}`);
+  };
   return (
     <li key={entry_number}>
-      <div className="card">
+      <div className="card" onClick={handleClick}>
         <img
           src={
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
