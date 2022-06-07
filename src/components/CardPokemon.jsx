@@ -2,7 +2,7 @@ import react from "react";
 import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import PokemonType from "./PokemonType";
-import "../index.css";
+import "../../css/CardPokemon.css";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const CardPokemon = ({ entry_number, pokemon_species }) => {
@@ -32,7 +32,7 @@ const CardPokemon = ({ entry_number, pokemon_species }) => {
   }, []);
 
   const handleClick = () => {
-    navigate(`/Pokemon/${pokemonIndex}`);
+    navigate(`/Pokemon/${pokemonIndex}`, { replace: false });
   };
   return (
     <li key={entry_number}>

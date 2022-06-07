@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import SelectPokedex from "./PokedexSelect";
 import CardPokemon from "./CardPokemon";
 import axios from "axios";
-import "../index.css";
+import "../../css/ScreenPokedex.css";
 
 const Pokedex = (params) => {
   const [selPokedex, setSelPokedex] = useState("");
@@ -39,7 +39,7 @@ const Pokedex = (params) => {
         pokedex={selPokedex}
       />
       {pokemonList != null ? (
-        <ul>
+        <ul className="pokedex">
           {pokemonList.map((pokemon) => {
             return <CardPokemon {...pokemon} key={pokemon.entry_number} />;
           })}

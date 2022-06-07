@@ -5,71 +5,13 @@ body {
     sans-serif;
 }
 
-h1 {
-  text-align: center;
-  color: red;
-  font-size: 3rem;
-}
-
-.select {
-  font-size: 1rem;
-  padding: 3px;
-  width: 12rem;
-  text-align: center;
-}
-
-.numPokedex {
-  font-size: 0.8rem;
-  text-align: left;
-  color: grey;
-}
-form {
-  text-align: center;
-}
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-.title {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-items: flex-start;
-  flex-wrap: wrap;
-}
-li {
-  width: 15rem;
-  height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.card {
-  background-color: beige;
-  border-radius: 10%;
-  width: 12rem;
-  height: 12rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.card:hover {
-  cursor: pointer;
-  background-color: #efefef;
-}
+} */
 
-.pokemonType {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.typeInfo {
+/* .typeInfo {
   border: 10%;
   padding: 0.2rem;
   width: 10rem;
-}
+} */

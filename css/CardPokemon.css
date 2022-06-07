@@ -1,0 +1,36 @@
+.numPokedex {
+  font-size: 0.8rem;
+  text-align: left;
+  color: grey;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.pokemonType {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card {
+  background-color: beige;
+  border-radius: 10%;
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card:hover {
+  cursor: pointer;
+  background-color: #efefef;
+}
+
+.pokedex li {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
