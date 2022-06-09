@@ -5,11 +5,8 @@ import PokemonType from "./PokemonType";
 import "../../css/CardPokemon.css";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-const CardPokemon = ({ entry_number, pokemon_species }) => {
+const CardPokemon = ({ pokemonNum, pokemonName }) => {
   const [typePokemon, setTypePokemon] = useState([]);
-  const pokemonIndex =
-    pokemon_species.url.split("/")[pokemon_species.url.split("/").length - 2];
-
   const loca = useLocation();
   const navigate = useNavigate();
 
@@ -17,7 +14,7 @@ const CardPokemon = ({ entry_number, pokemon_species }) => {
     const getPokemon = async () => {
       try {
         const pokemonInfo = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`
+          `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
         );
         if (pokemonInfo != null) {
           setTypePokemon(pokemonInfo.data.types);
@@ -32,20 +29,20 @@ const CardPokemon = ({ entry_number, pokemon_species }) => {
   }, []);
 
   const handleClick = () => {
-    navigate(`/Pokemon/${pokemonIndex}`, { replace: false });
+    navigate(`/Pokemon/${pokemonNum}`, { replace: false });
   };
   return (
-    <li key={entry_number}>
+    <li key={pokemonNum}>
       <div className="card" onClick={handleClick}>
         <img
           src={
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-            pokemonIndex +
+            pokemonNum +
             ".png"
           }
         />
-        <div className="numPokedex">Num {pokemonIndex} </div>
-        <div className="title">{pokemon_species.name}</div>
+        <div className="numPokedex">Num {pokemonNum} </div>
+        <div className="title">{pokemonName}</div>
         <div className="pokemonType">
           {typePokemon.map((typeAct) => {
             return (
