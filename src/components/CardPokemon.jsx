@@ -4,6 +4,7 @@ import axios, { AxiosError } from "axios";
 import PokemonType from "./PokemonType";
 import "../../css/CardPokemon.css";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { getPokemonData } from "../api";
 
 const CardPokemon = ({ pokemonNum, pokemonName }) => {
   const [typePokemon, setTypePokemon] = useState([]);
@@ -13,11 +14,9 @@ const CardPokemon = ({ pokemonNum, pokemonName }) => {
   useEffect((prev) => {
     const getPokemon = async () => {
       try {
-        const pokemonInfo = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
-        );
+        const pokemonInfo = await getPokemonData(pokemonNum);
         if (pokemonInfo != null) {
-          setTypePokemon(pokemonInfo.data.types);
+          setTypePokemon(pokemonInfo);
         } else {
           setTypePokemon([]);
         }
@@ -34,13 +33,7 @@ const CardPokemon = ({ pokemonNum, pokemonName }) => {
   return (
     <li key={pokemonNum}>
       <div className="card" onClick={handleClick}>
-        <img
-          src={
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-            pokemonNum +
-            ".png"
-          }
-        />
+        <img src={imageURL(pokemonNum)} />
         <div className="numPokedex">Num {pokemonNum} </div>
         <div className="title">{pokemonName}</div>
         <div className="pokemonType">
@@ -58,4 +51,11 @@ const CardPokemon = ({ pokemonNum, pokemonName }) => {
   );
 };
 
+const imageURL = (pokemonNum) => {
+  return (
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+    pokemonNum +
+    ".png"
+  );
+};
 export default CardPokemon;

@@ -1,15 +1,48 @@
 import axios from "axios";
 
-export const getPokemon = async (pokemonId) => {
+export const getMoreInformationPokemon = async (pokemonId) => {
   try {
     const pokemonInfo = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon-species/1"
+      `http://pokeapi.co/api/v2/pokemon/${pokemonId}`
     );
-    const { evolution_chain } = { ...pokemonInfo };
-    return pokemonInfo;
+    const { abilities, height, weight, base_experience, name } = {
+      ...pokemonInfo.data,
+    };
+    const description = await getDescription(pokemonId);
+
+    const pokemon = {
+      name: name,
+      abilities: abilities,
+      height: height / 10 + " m",
+      weight: weight / 10 + " kg",
+      base_experience: base_experience,
+      description: description,
+    };
+
+    return pokemon;
   } catch (e) {
     console.error(e);
-    return [];
+    return {};
+  }
+};
+
+export const getDescription = async (pokemonId) => {
+  try {
+    const pokemonInfo = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
+    );
+    let description = "";
+
+    pokemonInfo.data.flavor_text_entries.forEach(function (element) {
+      if (element.language.name == "es") {
+        description = element.flavor_text;
+      }
+    });
+
+    return description;
+  } catch (e) {
+    console.error(e);
+    return "";
   }
 };
 
@@ -23,4 +56,19 @@ export const getPokedex = async (name) => {
   }
 };
 
-export default { getPokemon, getPokedex };
+export const getPokemonData = async (pokemonNum) => {
+  try {
+    const pokemonInfo = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
+    );
+    if (pokemonInfo != null) {
+      return pokemonInfo.data.types;
+    } else {
+      return [];
+    }
+  } catch (e) {
+    return [];
+  }
+};
+
+export default { getMoreInformationPokemon, getPokedex, getPokemonData };
