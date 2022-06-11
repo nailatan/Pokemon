@@ -57,19 +57,14 @@ export const getPokedex = async (name) => {
   }
 };
 
-// export const getPokemonData = async (pokemonNum) => {
-//   try {
-//     const pokemonInfo = await axios.get(
-//       `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
-//     );
-//     if (pokemonInfo != null) {
-//       return pokemonInfo.data.types;
-//     } else {
-//       return [];
-//     }
-//   } catch (e) {
-//     return [];
-//   }
-// };
+export const getAllPokedex = async () => {
+  const pokedex = await axios.get("https://pokeapi.co/api/v2/pokedex/");
 
-export default { getMoreInformationPokemon, getPokedex };
+  if (pokedex != null) {
+    return pokedex.data.results;
+  } else {
+    return [];
+  }
+};
+
+export default { getMoreInformationPokemon, getPokedex, getAllPokedex };

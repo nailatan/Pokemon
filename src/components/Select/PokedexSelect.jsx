@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./PokedexSelect.css";
+import { getAllPokedex } from "../../utils/api";
 
 const SelectPokedex = (props) => {
   const [pokedexValues, setPokedexValues] = useState([]);
@@ -9,9 +10,9 @@ const SelectPokedex = (props) => {
 
   useEffect((prev) => {
     const getPokedex = async () => {
-      const pokedex = await axios.get("https://pokeapi.co/api/v2/pokedex/");
+      const pokedex = await getAllPokedex();
       if (pokedex != null) {
-        setPokedexValues(pokedex.data.results);
+        setPokedexValues(pokedex);
       } else {
         setPokedexValues([]);
       }
