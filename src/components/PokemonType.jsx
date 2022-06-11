@@ -25,12 +25,12 @@ const colour = {
 
 const getColour = (pokemonType) => {};
 
-const PokemonType = ({ type }) => {
+const PokemonType = ({ name }) => {
   let backgroundColour = "#aaacde";
   let colourLetter = "#edfed6";
-  if (colour[type] != undefined) {
-    backgroundColour = colour[type][0];
-    colourLetter = colour[type][1];
+  if (colour[name] != undefined) {
+    backgroundColour = colour[name][0];
+    colourLetter = colour[name][1];
   }
   return (
     <div
@@ -41,10 +41,10 @@ const PokemonType = ({ type }) => {
         textAlign: "center",
         verticalAlign: "center",
         margin: "0.2rem",
-        borderRadius: "10%",
+        borderRadius: "20px",
       }}
     >
-      {type}
+      {name}
     </div>
   );
 };

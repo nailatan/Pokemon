@@ -1,11 +1,11 @@
 import axios from "axios";
-
+import { imageURL } from "../Helper";
 export const getMoreInformationPokemon = async (pokemonId) => {
   try {
     const pokemonInfo = await axios.get(
       `http://pokeapi.co/api/v2/pokemon/${pokemonId}`
     );
-    const { abilities, height, weight, base_experience, name } = {
+    const { abilities, height, weight, base_experience, name, types } = {
       ...pokemonInfo.data,
     };
     const description = await getDescription(pokemonId);
@@ -17,6 +17,7 @@ export const getMoreInformationPokemon = async (pokemonId) => {
       weight: weight / 10 + " kg",
       base_experience: base_experience,
       description: description,
+      types: types,
     };
 
     return pokemon;
@@ -56,19 +57,19 @@ export const getPokedex = async (name) => {
   }
 };
 
-export const getPokemonData = async (pokemonNum) => {
-  try {
-    const pokemonInfo = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
-    );
-    if (pokemonInfo != null) {
-      return pokemonInfo.data.types;
-    } else {
-      return [];
-    }
-  } catch (e) {
-    return [];
-  }
-};
+// export const getPokemonData = async (pokemonNum) => {
+//   try {
+//     const pokemonInfo = await axios.get(
+//       `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`
+//     );
+//     if (pokemonInfo != null) {
+//       return pokemonInfo.data.types;
+//     } else {
+//       return [];
+//     }
+//   } catch (e) {
+//     return [];
+//   }
+// };
 
-export default { getMoreInformationPokemon, getPokedex, getPokemonData };
+export default { getMoreInformationPokemon, getPokedex };

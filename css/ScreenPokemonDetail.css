@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+}
+.header {
+  background-color: lightskyblue;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0.4rem;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+
+.header p:nth-child(2) {
+  font-size: 0.8rem;
+}
+.header p:last-child {
+  text-align: center;
+  flex: 1;
+  font-size: 1.2rem;
+}
+.header img {
+  width: 0.9rem;
+  height: 0.9rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.pokemon {
+  margin: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carrusel {
+  margin-top: 0.6rem;
+  background-color: white;
+  width: 25%;
+  text-align: center;
+}
+.carrusel img {
+  align-self: center;
+}
+
+.descripcion {
+  text-align: center;
+  width: 75%;
+}
+.informacion {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1.4rem;
+}
+.informacion > div {
+  color: white;
+  background-color: #ffd166;
+  width: 25%;
+}
+.infoGeneral {
+  background-color: #118ab2;
+  color: white;
+  margin-top: 1rem;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.infoGeneral > div > p:first-child {
+  font-weight: bold;
+}
+.tarjeta > div:first-child {
+  background-color: #118ab2;
+  text-align: center;
+  padding: 0.5rem;
+}
+.tarjeta > div:nth-child(2) {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  padding: 00.5rem;
+}

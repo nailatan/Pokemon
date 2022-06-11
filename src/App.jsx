@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route strict exact path="/" element={<ScreenPokedex />} />
-        <Route path="/Pokemon" element={<ScreenPokemonDetail />} />
+        <Route path="/Pokemon/:pokemonId" element={<ScreenPokemonDetail />} />
         <Route
           path="/Pokemon2"
           render={(props) => <ScreenPokemonDetail {...props} />}
