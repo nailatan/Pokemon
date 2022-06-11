@@ -1,5 +1,5 @@
 import axios from "axios";
-import { imageURL } from "../Helper";
+
 export const getMoreInformationPokemon = async (pokemonId) => {
   try {
     const pokemonInfo = await axios.get(

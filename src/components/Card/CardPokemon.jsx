@@ -1,9 +1,7 @@
 import react from "react";
-import { useState, useEffect } from "react";
-import axios, { AxiosError } from "axios";
-import "../../css/CardPokemon.css";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { imageURL } from "../Helper";
+import "./CardPokemon.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import { imageURL } from "../../utils/Helper";
 
 const CardPokemon = ({ pokemonNum, pokemonName }) => {
   const loca = useLocation();

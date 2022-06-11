@@ -1,10 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import SelectPokedex from "./PokedexSelect";
-import CardPokemon from "./CardPokemon";
-import axios from "axios";
-import "../../css/ScreenPokedex.css";
-import { getPokedex } from "../api";
+import SelectPokedex from "../../components/Select/PokedexSelect";
+import CardPokemon from "../../components/Card/CardPokemon";
+import "./ScreenPokedex.css";
+import { getPokedex } from "../../utils/api";
 
 const Pokedex = (params) => {
   const [selPokedex, setSelPokedex] = useState("");

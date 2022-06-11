@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PokemonType from "./PokemonType";
-import Ability from "./Ability";
-import { imageURL } from "../Helper";
+import PokemonType from "../../components/Type/PokemonType";
+import Ability from "../../components/Ability/Ability";
+import { imageURL } from "../../utils/Helper";
 
-import { getMoreInformationPokemon } from "../api";
-import "../../css/ScreenPokemonDetail.css";
+import { getMoreInformationPokemon } from "../../utils/api";
+import "./ScreenPokemonDetail.css";
 
 const ScreenPokemonDetail = (props) => {
   const [infoPokemon, setInfoPokemon] = useState(null);

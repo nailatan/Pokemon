@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import "../../css/PokedexSelect.css";
+import "./PokedexSelect.css";
 
 const SelectPokedex = (props) => {
   const [pokedexValues, setPokedexValues] = useState([]);

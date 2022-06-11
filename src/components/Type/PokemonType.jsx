@@ -1,8 +1,3 @@
-import react from "react";
-import { useState, useEffect } from "react";
-import axios, { AxiosError } from "axios";
-import "../index.css";
-
 const colour = {
   grass: ["#9bcc50", "white"],
   poison: ["#b97fc9", "white"],

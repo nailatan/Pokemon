@@ -1,5 +1,5 @@
-import ScreenPokedex from "./components/ScreenPokedex";
-import ScreenPokemonDetail from "./components/ScreenPokemonDetail";
+import ScreenPokedex from "./screen/Pokedex/ScreenPokedex";
+import ScreenPokemonDetail from "./screen/Pokemon/ScreenPokemonDetail";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
