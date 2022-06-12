@@ -8,7 +8,7 @@ export const getMoreInformationPokemon = async (pokemonId) => {
     const { abilities, height, weight, base_experience, name, types } = {
       ...pokemonInfo.data,
     };
-    const description = await getDescription(pokemonId);
+    const info = await getInformationSpecies(pokemonId);
 
     const pokemon = {
       name: name,
@@ -16,7 +16,8 @@ export const getMoreInformationPokemon = async (pokemonId) => {
       height: height / 10 + " m",
       weight: weight / 10 + " kg",
       base_experience: base_experience,
-      description: description,
+      description: info["description"],
+      category: info["category"],
       types: types,
     };
 
@@ -27,12 +28,13 @@ export const getMoreInformationPokemon = async (pokemonId) => {
   }
 };
 
-export const getDescription = async (pokemonId) => {
+export const getInformationSpecies = async (pokemonId) => {
   try {
     const pokemonInfo = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
     );
     let description = "";
+    let category = "";
 
     pokemonInfo.data.flavor_text_entries.forEach(function (element) {
       if (element.language.name == "es") {
@@ -40,7 +42,12 @@ export const getDescription = async (pokemonId) => {
       }
     });
 
-    return description;
+    pokemonInfo.data.genera.forEach(function (element) {
+      if (element.language.name == "es") {
+        category = element.genus;
+      }
+    });
+    return { description, category };
   } catch (e) {
     console.error(e);
     return "";

@@ -13,7 +13,7 @@
   justify-content: space-around;
 }
 .card {
-  background-color: beige;
+  background-color: #dadad9;
   border-radius: 10%;
   width: 12rem;
   height: 12rem;
@@ -24,6 +24,7 @@
 .card:hover {
   cursor: pointer;
   background-color: #efefef;
+  border: 3px solid red;
 }
 
 .pokedex li {

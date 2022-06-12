@@ -31,19 +31,28 @@ const ScreenPokemonDetail = (props) => {
         <div className="carrusel">
           <img src={imageURL(pokemonId)} />
         </div>
-        <div className="descripcion">{infoPokemon.description}s</div>
+
+        <div className="species">
+          <div>{infoPokemon.category}</div>
+          <div>{infoPokemon.description}</div>
+        </div>
+
         <div className="infoGeneral">
           <div>
-            <p>Experiencia </p>
-            <p>{infoPokemon.base_experience}</p>
+            <div>Experiencia </div>
+            <div>Peso</div>
+            <div>Altura</div>
           </div>
           <div>
-            <p>Peso</p>
-            <p>{infoPokemon.height}</p>
-          </div>
-          <div>
-            <p>Altura</p>
-            <p>{infoPokemon.weight}</p>
+            <div className="tarjeta">
+              <p>{infoPokemon.base_experience}</p>
+            </div>
+            <div>
+              <p>{infoPokemon.height}</p>
+            </div>
+            <div>
+              <p>{infoPokemon.weight}</p>
+            </div>
           </div>
         </div>
         <div className="informacion">

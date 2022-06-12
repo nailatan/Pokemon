@@ -1,14 +1,18 @@
 body {
   margin: 0;
+  background-image: url("../../../images/pokeball_back.png");
+  background-attachment: fixed;
+  background-position: right;
 }
 .header {
-  background-color: lightskyblue;
+  background-color: black;
   display: flex;
   flex-direction: row;
   padding-left: 0.4rem;
   align-items: center;
   color: white;
   width: 100%;
+  border: 3px solid #700404;
 }
 
 .header p:nth-child(2) {
@@ -33,7 +37,7 @@ body {
 }
 .carrusel {
   margin-top: 0.6rem;
-  background-color: white;
+  /* bac  kground-color: white; */
   width: 25%;
   text-align: center;
 }
@@ -41,10 +45,23 @@ body {
   align-self: center;
 }
 
-.descripcion {
+.species {
   text-align: center;
   width: 75%;
+  color: white;
 }
+.species > div:first-child {
+  background-color: #700404;
+  padding: 0.6rem;
+  font-weight: bold;
+}
+
+.species > div:last-child {
+  background-color: #eaf6ff;
+  color: black;
+  padding: 1rem;
+}
+
 .informacion {
   display: flex;
   flex-direction: row;
@@ -54,23 +71,38 @@ body {
 }
 .informacion > div {
   color: white;
-  background-color: #ffd166;
   width: 25%;
 }
 .infoGeneral {
-  background-color: #118ab2;
+  background-color: #700404;
   color: white;
   margin-top: 1rem;
   width: 75%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoGeneral > div:first-child {
+  width: 100%;
+  background-color: #700404;
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
-.infoGeneral > div > p:first-child {
-  font-weight: bold;
+.infoGeneral > div:last-child {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: black;
+  background-color: #eaf6ff;
 }
+
 .tarjeta > div:first-child {
-  background-color: #118ab2;
+  background-color: #700404;
   text-align: center;
   padding: 0.5rem;
 }
@@ -79,4 +111,5 @@ body {
   display: flex;
   justify-content: center;
   padding: 00.5rem;
+  background-color: #eaf6ff;
 }
