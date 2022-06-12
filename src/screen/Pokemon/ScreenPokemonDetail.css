@@ -43,6 +43,7 @@ body {
 }
 .carrusel img {
   align-self: center;
+  width: 250px;
 }
 
 .species {
