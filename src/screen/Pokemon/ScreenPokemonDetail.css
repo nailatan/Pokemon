@@ -93,6 +93,10 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.infoGeneral > div:first-child > div {
+  width: 100%;
+  text-align: center;
+}
 .infoGeneral > div:last-child {
   width: 100%;
   display: flex;
@@ -100,6 +104,10 @@ body {
   justify-content: space-evenly;
   color: black;
   background-color: #eaf6ff;
+}
+.infoGeneral > div:last-child > div {
+  width: 100%;
+  text-align: center;
 }
 
 .tarjeta > div:first-child {

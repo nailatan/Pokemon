@@ -44,7 +44,7 @@ const ScreenPokemonDetail = (props) => {
             <div>Altura</div>
           </div>
           <div>
-            <div className="tarjeta">
+            <div>
               <p>{infoPokemon.base_experience}</p>
             </div>
             <div>
