@@ -15,7 +15,6 @@ const Pokedex = (params) => {
   };
 
   useEffect(() => {
-    console.log("useEffect");
     if (selPokedex === "") setSelPokedex("national"); //Seleccionamos la primera por defecto
   }, []);
 
@@ -34,9 +33,6 @@ const Pokedex = (params) => {
     [selPokedex]
   );
 
-  {
-    pokemonList != null ? console.log("HAy pokemon") : console.log("NO HAY");
-  }
   return (
     <div>
       <h1>Pokedex</h1>
