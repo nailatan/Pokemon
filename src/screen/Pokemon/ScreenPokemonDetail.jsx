@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import PokemonType from "../../components/Type/PokemonType";
 import Ability from "../../components/Ability/Ability";
 import { imageURL } from "../../utils/Helper";
-
 import { getMoreInformationPokemon } from "../../utils/api";
 import "./ScreenPokemonDetail.css";
+import Loading from "../../components/Auxiliar/Loading";
 
 const ScreenPokemonDetail = (props) => {
   const [infoPokemon, setInfoPokemon] = useState(null);
@@ -86,7 +86,7 @@ const ScreenPokemonDetail = (props) => {
       </div>
     );
   } else {
-    return "";
+    return <Loading />;
   }
 };
 export default ScreenPokemonDetail;

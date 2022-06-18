@@ -4,6 +4,7 @@ import SelectPokedex from "../../components/Select/PokedexSelect";
 import CardPokemon from "../../components/Card/CardPokemon";
 import "./ScreenPokedex.css";
 import { getPokedex } from "../../utils/api";
+import Loading from "../../components/Auxiliar/Loading";
 
 const Pokedex = (params) => {
   const [selPokedex, setSelPokedex] = useState("");
@@ -14,6 +15,7 @@ const Pokedex = (params) => {
   };
 
   useEffect(() => {
+    console.log("useEffect");
     if (selPokedex === "") setSelPokedex("national"); //Seleccionamos la primera por defecto
   }, []);
 
@@ -32,6 +34,9 @@ const Pokedex = (params) => {
     [selPokedex]
   );
 
+  {
+    pokemonList != null ? console.log("HAy pokemon") : console.log("NO HAY");
+  }
   return (
     <div>
       <h1>Pokedex</h1>
@@ -56,7 +61,7 @@ const Pokedex = (params) => {
           })}
         </ul>
       ) : (
-        <div>No hay pokemons</div>
+        <Loading />
       )}
     </div>
   );
