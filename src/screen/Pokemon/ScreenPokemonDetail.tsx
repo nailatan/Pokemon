@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PokemonType from "../../components/Type/PokemonType";
+import PokemonType  from "../../components/Type/PokemonType";
 import Ability from "../../components/Ability/Ability";
 import { imageURL } from "../../utils/Helper";
 import { getMoreInformationPokemon } from "../../utils/api";
 import "./ScreenPokemonDetail.css";
 import Loading from "../../components/Auxiliar/Loading";
+import { IPokemon } from "../../types/Pokemon";
+import { IType } from "../../types/Type";
+import { IAbility } from "../../types/Ability";
 
-const ScreenPokemonDetail = (props) => {
-  const [infoPokemon, setInfoPokemon] = useState(null);
-  let { pokemonId } = useParams();
+type ScreenPokemonDetailParams = {
+  pokemonId : string
+}
+const ScreenPokemonDetail = (props :string[]) :JSX.Element => {
+  const [infoPokemon, setInfoPokemon] = useState<IPokemon |null>(null);
+  let {pokemonId} = useParams<ScreenPokemonDetailParams>();
 
-  useEffect((prev) => {
-    const getInfoPokemon = async () => {
-      const info = await getMoreInformationPokemon(pokemonId);
+
+  useEffect(() : void  => {
+    const getInfoPokemon = async ()  => {
+      const info: IPokemon |null = await getMoreInformationPokemon(pokemonId || "");
       setInfoPokemon(info);
     };
 
@@ -29,7 +36,7 @@ const ScreenPokemonDetail = (props) => {
           <p>{infoPokemon.name}</p>
         </div>
         <div className="carrusel">
-          <img src={imageURL(pokemonId)} />
+          <img src={imageURL(pokemonId || "")} />
         </div>
 
         <div className="species">
@@ -59,11 +66,11 @@ const ScreenPokemonDetail = (props) => {
           <div className="tarjeta">
             <div>Habilidades</div>
             <div>
-              {infoPokemon.abilities.map((abilityAct) => {
+              {infoPokemon.abilities.map((abilityAct : IAbility) => {
                 return (
                   <Ability
-                    name={abilityAct.ability.name}
-                    key={abilityAct.ability.name}
+                    name={abilityAct.name}
+                    key={abilityAct.name}
                   ></Ability>
                 );
               })}
@@ -72,11 +79,11 @@ const ScreenPokemonDetail = (props) => {
           <div className="tarjeta">
             <div>Tipo</div>
             <div>
-              {infoPokemon.types.map((typeAct) => {
+              {infoPokemon.types.map((typeAct : IType) => {
                 return (
                   <PokemonType
-                    name={typeAct.type.name}
-                    key={typeAct.type.name}
+                    name={typeAct.name}
+                    key={typeAct.name}
                   ></PokemonType>
                 );
               })}

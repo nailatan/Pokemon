@@ -1,4 +1,9 @@
-const colour = {
+
+interface iColour {
+  [key : string] : string[]
+  
+}
+const colour : iColour= {
   grass: ["#9bcc50", "white"],
   poison: ["#b97fc9", "white"],
   fire: ["#fd7d24", "white"],
@@ -18,9 +23,14 @@ const colour = {
   ghost: ["#7b62a3", "white"],
 };
 
-const getColour = (pokemonType) => {};
 
-const PokemonType = ({ name }) => {
+//const getColour = (pokemonType) => {};
+
+interface propsPokemonType {
+  name: string;
+}
+
+const PokemonType = ({ name } : propsPokemonType): JSX.Element => {
   let backgroundColour = "#aaacde";
   let colourLetter = "#edfed6";
   if (colour[name] != undefined) {

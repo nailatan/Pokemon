@@ -1,6 +1,6 @@
 import "./Loading.css";
 
-function Loading() {
+function Loading() : JSX.Element {
   return (
     <div className="loading">
       <div className="spinner"></div>
